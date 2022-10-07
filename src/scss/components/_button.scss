@@ -1,0 +1,30 @@
+@use "src/scss/vars" as *;
+
+.btn {
+    cursor: pointer;
+    border: none;
+    color: $c-text;
+    background-color: transparent;
+    font-size: 12pt;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+    &:hover {
+        background-color: $c-bg-hover;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-icon-right {
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+.btn-icon-left {
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}

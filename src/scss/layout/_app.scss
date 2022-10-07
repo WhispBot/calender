@@ -1,0 +1,12 @@
+@use "../vars" as v;
+
+body {
+    // background-color: v.$c-bg;
+    color: v.$c-text;
+    height: 100vh;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+}

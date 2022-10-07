@@ -1,52 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./index.scss"
+import "../../scss/components/_calender.scss";
 import dayjs from "dayjs";
-import Header from "../header";
-
-interface IDay {
-    day: string;
-    date: string;
-    isToDay?: boolean;
-    padding?: boolean;
-    events: Array<IEvent>
-}
-
-interface IEvent {
-    body: string;
-    color?: string;
-}
-
-interface props {
-    value: IDay;
-    selectedState: {
-        selected: IDay | null;
-        setSelected: Function;
-    }
-}
-
-
-const Item: React.FC<props> = ({ value, selectedState: { selected, setSelected } }) => {
-
-
-    const onClick = () => {
-        if (selected?.date !== value.date) {
-            setSelected(value);
-        } else {
-            setSelected(null)
-        }
-    }
-
-    return (
-        <div onClick={() => onClick()} className={`item-wrapper ${value.padding ? "prev-month" : ""}`}>
-            {/* <span>{value.day}</span> */}
-            <ul className="event-item-wrapper">
-                <li className="event-item">1</li>
-                <li className="event-item">2</li>
-            </ul>
-            <span className={`item-number ${value.isToDay ? "current-day" : ""}  ${selected?.date === value.date ? "item-selected" : ""}`}>{value.date.split("/")[0]}</span>
-        </div>
-    )
-}
+import Header from "../../components/header";
+import { IDay } from "../../interfaces/global";
+import Day from "../../components/day";
 
 
 const Calender = () => {
@@ -103,9 +60,9 @@ const Calender = () => {
     }, [nav])
 
     return (
-        <div className="main-wrapper">
+        <div className="main-wrapper bg-primary-400">
             <Header changeMonth={setNav} value={nav} month={monthDt} year={yearDt} />
-            <div className="day-wrapper">
+            <div className="day-wrapper-static">
                 <span>Monday</span>
                 <span>Tuesday</span>
                 <span>Wednesday</span>
@@ -115,7 +72,7 @@ const Calender = () => {
                 <span>Sunday</span>
             </div>
             <div className="cal-wapper">
-                {days.map((value, index) => { return <Item key={value.date + index} value={value} selectedState={{ selected, setSelected }} /> })}
+                {days.map((value, index) => { return <Day key={value.date + index} value={value} selectedState={{ selected, setSelected }} /> })}
             </div>
         </div>
 

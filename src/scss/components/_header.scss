@@ -1,0 +1,13 @@
+@use "src/scss/vars" as *;
+
+.header-wrapper {
+    // background-color: $c-bg-dark;
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-wrapper {
+    display: flex;
+}

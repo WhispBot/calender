@@ -1,0 +1,6 @@
+@use "./functions" as *;
+
+@mixin dc($color) {
+    background-color: $color;
+    color: text($color);
+}

@@ -1,0 +1,55 @@
+@use "src/scss/vars" as v;
+
+.day-wrapper {
+    // display: grid;
+    padding: 0.3rem;
+    // &:hover {
+    // background-color: v.$c-bg-hover;
+    // }
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+
+.day-number {
+    position: absolute;
+    right: 0.3rem;
+    bottom: 0.3rem;
+    border-radius: 5px;
+    padding: 0px 0.8rem;
+    font-weight: 700;
+}
+
+.day-event-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.day-event {
+    border-radius: 5px;
+    padding: 0px 0.8rem;
+    // background: linear-gradient(45deg, rgba(102, 0, 255, 1) 0%, rgba(0, 255, 252, 1) 70%) !important;
+}
+
+.day-selected {
+    // outline: 2px solid v.$c-selected !important;
+    .day-number {
+        background: linear-gradient(45deg, rgba(102, 0, 255, 1) 0%, rgba(0, 255, 252, 1) 70%) !important;
+        // background-color: rgba(#000000, 0.3);
+        color: #fff;
+    }
+}
+
+.day-current {
+    // outline: 2px solid v.$c-currentDay;
+    .day-number {
+        background: linear-gradient(45deg, #ffdf00 0%, #ff00a8 100%);
+        // background-color: rgba(#000000, 0.3);
+    }
+}
+
+.day-padding {
+    font-weight: normal;
+    border: 1px solid v.$c-bg-dark;
+}

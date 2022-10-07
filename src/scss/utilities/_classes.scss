@@ -1,0 +1,29 @@
+@use "../abstracts/colors" as *;
+@use "./mixins" as *;
+
+@each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+        .bg-#{$color}-#{$shade} {
+            @include dc($value);
+            // background-color: $value;
+        }
+    }
+}
+
+@each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+        .text-#{$color}-#{$shade} {
+            color: $value;
+        }
+    }
+}
+
+@each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+        .bg-hover-#{$color}-#{$shade} {
+            &:hover {
+                background-color: $value;
+            }
+        }
+    }
+}

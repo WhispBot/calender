@@ -1,0 +1,22 @@
+$colors: (
+    primary: (
+        100: hsl(0, 0%, 65%),
+        200: hsl(0, 0%, 55%),
+        300: hsl(0, 0%, 45%),
+        400: hsl(0, 0%, 35%),
+        500: hsl(0, 0%, 25%),
+        600: hsl(0, 0%, 20%),
+    ),
+    events: (
+        r: red,
+        g: green,
+        b: blue,
+        p: purple,
+        pi: pink,
+        o: orange,
+        c: cyan,
+        bl: black,
+        w: white,
+        none: hsl(0, 0%, 0%, 0),
+    ),
+);

@@ -1,5 +1,6 @@
-import "./index.scss"
-import { BsChevronUp, BsChevronDown } from "react-icons/bs"
+import "../../scss/components/_header.scss"
+import { TbChevronDown, TbChevronUp } from "react-icons/tb"
+import Button from "../button";
 
 interface props {
     changeMonth: Function;
@@ -19,15 +20,15 @@ const Header: React.FC<props> = ({ changeMonth, value, month, year }) => {
     }
 
     return (
-        <div className="header-wrapper">
+        <div className="header-wrapper bg-primary-600">
             <div>
                 <span>{month}</span> <span>{year}</span>
             </div>
             <div className="btn-wrapper">
-                <button className="header-btn" onClick={() => onNext()}><BsChevronUp /></button>
-                <button className="header-btn" onClick={() => onBack()}><BsChevronDown /></button>
+                <Button iconRight={<TbChevronUp />} onClick={() => onNext()} />
+                <Button iconRight={<TbChevronDown />} onClick={() => onBack()} />
             </div>
-        </div>
+        </div >
     )
 }
 
