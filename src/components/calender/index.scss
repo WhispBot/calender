@@ -1,0 +1,78 @@
+@use "src/scss/vars" as c;
+
+.cal-wapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 1rem;
+    padding-inline: 1rem;
+    padding-bottom: 1rem;
+}
+
+.item-wrapper {
+    @include c.rounded();
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    background-color: c.$c-bg-dark;
+    padding: 0.3rem;
+    &:hover {
+        background-color: c.$c-bg-hover;
+    }
+    cursor: pointer;
+    position: relative;
+}
+
+.item-number {
+    bottom: 0.3rem;
+    right: 0.3rem;
+    position: absolute;
+    @include c.rounded();
+    padding: 0.5rem;
+    font-weight: 700;
+}
+
+.event-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.event-item {
+    // background-color: c.$c-currentDay;
+    border-radius: 3px;
+    font-size: 10pt;
+    width: 100%;
+    padding: 2px;
+    padding-inline: 1rem;
+}
+
+.item-selected {
+    outline: 2px solid c.$c-selected !important;
+}
+
+.current-day {
+    outline: 2px solid c.$c-currentDay;
+}
+
+.prev-month {
+    color: c.$c-bg-light;
+    background-color: transparent;
+    font-weight: normal;
+    border: 1px solid c.$c-bg-dark;
+}
+
+.main-wrapper {
+    display: grid;
+    grid-template-rows: 4rem 2rem 1fr;
+}
+
+.day-wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    place-content: center;
+}

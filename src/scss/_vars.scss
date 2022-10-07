@@ -1,0 +1,15 @@
+$c-bg: #444;
+$c-text: #fff;
+$c-bg-light: #b3b3b3;
+$c-bg-dark: #333;
+
+$c-selected: #008807;
+$c-currentDay: #008a94;
+
+$c-bg-hover: #555;
+
+$v-padding: 10rem;
+
+@mixin rounded() {
+    border-radius: 10px;
+}
