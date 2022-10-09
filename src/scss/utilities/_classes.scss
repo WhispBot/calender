@@ -22,8 +22,16 @@
     @each $shade, $value in $shades {
         .bg-hover-#{$color}-#{$shade} {
             &:hover {
-                background-color: $value;
+                @include dc($value);
             }
+        }
+    }
+}
+
+@each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+        .br-#{$color}-#{$shade} {
+            border: 1px solid $value;
         }
     }
 }

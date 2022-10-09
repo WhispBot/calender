@@ -3,12 +3,10 @@
 .day-wrapper {
     // display: grid;
     padding: 0.3rem;
-    // &:hover {
-    // background-color: v.$c-bg-hover;
-    // }
     cursor: pointer;
-    position: relative;
     border-radius: 5px;
+    user-select: none;
+    position: relative;
 }
 
 .day-number {
@@ -52,4 +50,10 @@
 .day-padding {
     font-weight: normal;
     border: 1px solid v.$c-bg-dark;
+}
+
+.day-main-wrapper {
+    position: relative;
+    display: grid;
+    // background: #000;
 }

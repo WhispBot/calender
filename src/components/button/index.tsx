@@ -8,12 +8,12 @@ interface props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 
-const Button: FC<props> = ({ iconRight, iconLeft, children, ...props }) => {
+const Button: FC<props> = ({ iconRight, iconLeft, children, className, ...props }) => {
     return (
-        <button className="btn" {...props}>
-            <span className="btn-icon-right">{iconRight}</span>
-            <span className="btn-children">{children}</span>
-            <span className="btn-icon-left">{iconLeft}</span>
+        <button className={`btn ${className}`} {...props}>
+            {iconLeft && <span className="btn-icon-left">{iconLeft}</span>}
+            {children && <span className="btn-children">{children}</span>}
+            {iconRight && <span className="btn-icon-right">{iconRight}</span>}
         </button>
     )
 }

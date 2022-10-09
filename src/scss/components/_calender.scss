@@ -4,9 +4,9 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    grid-gap: 1rem;
-    padding-inline: 1rem;
-    padding-bottom: 1rem;
+    grid-gap: 0.5rem;
+    padding-inline: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .main-wrapper {

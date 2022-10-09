@@ -1,0 +1,13 @@
+.clr-picker-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.clr {
+    cursor: pointer;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}

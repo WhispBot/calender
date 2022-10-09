@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "../../scss/components/_calender.scss";
 import dayjs from "dayjs";
 import Header from "../../components/header";
-import { IDay } from "../../interfaces/global";
+import { IDay, IEvents } from "../../interfaces/global";
 import Day from "../../components/day";
+import { EventContext } from "../../contexts/eventContext";
 
 
 const Calender = () => {
@@ -15,6 +16,17 @@ const Calender = () => {
     const [monthDt, setMonthDt] = useState<string>("")
     const [yearDt, setYearDt] = useState<string>("")
 
+    const [events, setEvents] = useState<IEvents[]>([
+        // {
+        //     date: "04/10/2022",
+        //     events: [{ body: "go buy some food", color: "g" }]
+        // },
+        // {
+        //     date: "26/10/2022",
+        //     events: [{ body: "go buy some food", color: "g" }]
+        // }
+    ])
+
     useEffect(() => {
         const month = dayjs().month();
 
@@ -25,7 +37,6 @@ const Calender = () => {
 
         const firstDayOfMonth = Number(dayjs(`${dt.year()}-${dt.month() + 1}-${1}`).format("d")) - 1
         const daysInMonth = dayjs(`${dt.year()}-${dt.month() + 1}-${1}`).daysInMonth()
-        // const lastDayOfMonth = 7 - Number(dayjs((`${dt.year()}-${dt.month() + 1}-${daysInMonth}`)).format("d"))
 
 
         const temp: IDay[] = []
@@ -52,12 +63,20 @@ const Calender = () => {
                     const day: IDay = { day: date.format("dddd"), date: date.format('DD/MM/YYYY'), events: [] }
                     temp.push(day)
                 }
-            }
 
+            }
+            events.forEach((item) => {
+                if (temp !== undefined) {
+                    const date = dt.date(i - firstDayOfMonth).format("DD/MM/YYYY")
+                    if (date === item.date) {
+                        temp[i - 1].events = item.events;
+                    }
+                }
+            })
         }
 
         setDays(temp)
-    }, [nav])
+    }, [nav, events])
 
     return (
         <div className="main-wrapper bg-primary-400">
@@ -72,7 +91,9 @@ const Calender = () => {
                 <span>Sunday</span>
             </div>
             <div className="cal-wapper">
-                {days.map((value, index) => { return <Day key={value.date + index} value={value} selectedState={{ selected, setSelected }} /> })}
+                <EventContext.Provider value={{ events, setEvents }}>
+                    {days.map((value, index) => { return <Day events={value.events} key={value.date + index} value={value} selectedState={{ selected, setSelected }} /> })}
+                </EventContext.Provider>
             </div>
         </div>
 
